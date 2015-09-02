@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "description": "Lazy ATX headers plugin for markdown-it",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Galadirith/markdown-it-lazy-headers"
@@ -20,6 +26,7 @@
   "homepage": "https://github.com/Galadirith/markdown-it-lazy-headers",
   "devDependencies": {
     "markdown-it": "^4.4.0",
-    "markdown-it-testgen": "^0.1.4"
+    "markdown-it-testgen": "^0.1.4",
+    "mocha": "^2.3.0"
   }
 }

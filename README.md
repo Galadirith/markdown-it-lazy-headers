@@ -16,9 +16,22 @@ npm install --save markdown-it-lazy-headers
 
 ## Usage
 
+`markdown-it-testgen` has no configuration options, simply `use` it with an
+instance of `markdown-it` to enable lazy headers:
+
 ```
 var md = require('markdown-it')()
         .use(require('markdown-it-lazy-headers'));
+```
+
+## Testing
+
+`markdown-it-testgen` through `mocha` is used to test
+`markdown-it-lazy-headers`. The test suite is a modified version of the ATX
+header suite used by commonmark:
+
+```
+npm test
 ```
 
 ## License

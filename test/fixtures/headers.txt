@@ -1,0 +1,278 @@
+Simple headers:
+.
+# foo
+## foo
+### foo
+#### foo
+##### foo
+###### foo
+.
+<h1>foo</h1>
+<h2>foo</h2>
+<h3>foo</h3>
+<h4>foo</h4>
+<h5>foo</h5>
+<h6>foo</h6>
+.
+
+.
+#foo
+##foo
+###foo
+####foo
+#####foo
+######foo
+.
+<h1>foo</h1>
+<h2>foo</h2>
+<h3>foo</h3>
+<h4>foo</h4>
+<h5>foo</h5>
+<h6>foo</h6>
+.
+
+More than six `#` characters is not a header:
+.
+####### foo
+.
+<p>####### foo</p>
+.
+
+.
+#######foo
+.
+<p>#######foo</p>
+.
+
+A space is not required to follow the opening `#` sequence:
+.
+#5 bolt
+
+#foobar
+.
+<h1>5 bolt</h1>
+<h1>foobar</h1>
+.
+
+This is not a header, because the first `#` is escaped:
+.
+\## foo
+.
+<p>## foo</p>
+.
+
+.
+\##foo
+.
+<p>##foo</p>
+.
+
+Contents are parsed as inlines:
+.
+# foo *bar* \*baz\*
+.
+<h1>foo <em>bar</em> *baz*</h1>
+.
+
+.
+#foo *bar* \*baz\*
+.
+<h1>foo <em>bar</em> *baz*</h1>
+.
+
+Leading and trailing blanks are ignored in parsing inline content:
+.
+#                  foo
+.
+<h1>foo</h1>
+.
+
+One to three spaces indentation are allowed:
+.
+ ### foo
+  ## foo
+   # foo
+.
+<h3>foo</h3>
+<h2>foo</h2>
+<h1>foo</h1>
+.
+
+.
+ ###foo
+  ##foo
+   #foo
+.
+<h3>foo</h3>
+<h2>foo</h2>
+<h1>foo</h1>
+.
+
+Four spaces are too much:
+.
+    # foo
+.
+<pre><code># foo
+</code></pre>
+.
+
+.
+foo
+    # bar
+.
+<p>foo
+# bar</p>
+.
+
+.
+    #foo
+.
+<pre><code>#foo
+</code></pre>
+.
+
+.
+foo
+    #bar
+.
+<p>foo
+#bar</p>
+.
+
+A closing sequence of `#` characters is optional:
+.
+## foo ##
+  ###   bar    ###
+.
+<h2>foo</h2>
+<h3>bar</h3>
+.
+
+.
+##foo ##
+  ###   bar    ###
+.
+<h2>foo</h2>
+<h3>bar</h3>
+.
+
+It need not be the same length as the opening sequence:
+.
+# foo ##################################
+##### foo ##
+.
+<h1>foo</h1>
+<h5>foo</h5>
+.
+
+.
+#foo ##################################
+#####foo ##
+.
+<h1>foo</h1>
+<h5>foo</h5>
+.
+
+A sequence of `#` characters with a
+[non-whitespace character] following it
+is not a closing sequence, but counts as part of the contents of the
+header:
+.
+### foo ### b
+.
+<h3>foo ### b</h3>
+.
+
+.
+###foo ### b
+.
+<h3>foo ### b</h3>
+.
+
+The closing sequence must be preceded by a space:
+.
+# foo#
+.
+<h1>foo#</h1>
+.
+
+.
+#foo#
+.
+<h1>foo#</h1>
+.
+
+Backslash-escaped `#` characters do not count as part
+of the closing sequence:
+.
+### foo \###
+## foo #\##
+# foo \#
+.
+<h3>foo ###</h3>
+<h2>foo ###</h2>
+<h1>foo #</h1>
+.
+
+.
+###foo \###
+##foo #\##
+#foo \#
+.
+<h3>foo ###</h3>
+<h2>foo ###</h2>
+<h1>foo #</h1>
+.
+
+ATX headers need not be separated from surrounding content by blank
+lines, and they can interrupt paragraphs:
+.
+****
+## foo
+****
+.
+<hr>
+<h2>foo</h2>
+<hr>
+.
+
+.
+Foo bar
+# baz
+Bar foo
+.
+<p>Foo bar</p>
+<h1>baz</h1>
+<p>Bar foo</p>
+.
+
+.
+****
+##foo
+****
+.
+<hr>
+<h2>foo</h2>
+<hr>
+.
+
+.
+Foo bar
+#baz
+Bar foo
+.
+<p>Foo bar</p>
+<h1>baz</h1>
+<p>Bar foo</p>
+.
+
+ATX headers can be empty:
+.
+##
+#
+### ###
+.
+<h2></h2>
+<h1></h1>
+<h3></h3>
+.
