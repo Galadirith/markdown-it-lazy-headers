@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-lazy-headers",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Lazy ATX headers plugin for markdown-it",
   "main": "index.js",
   "directories": {
