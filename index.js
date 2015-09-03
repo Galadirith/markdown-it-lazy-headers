@@ -3,15 +3,6 @@
 'use strict';
 
 module.exports = function lazy_headers_plugin(md) {
-  function isSpace(code) {
-    switch (code) {
-      case 0x09:
-      case 0x20:
-        return true;
-    }
-    return false;
-  }
-
   function heading(state, startLine, endLine, silent) {
     var ch, level, tmp, token,
         pos = state.bMarks[startLine] + state.tShift[startLine],
