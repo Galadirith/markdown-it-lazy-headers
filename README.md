@@ -16,7 +16,7 @@ npm install --save markdown-it-lazy-headers
 
 ## Usage
 
-`markdown-it-testgen` has no configuration options, simply `use` it with an
+`markdown-it-lazy-headers` has no configuration options, simply `use` it with an
 instance of `markdown-it` to enable lazy headers:
 
 ```
