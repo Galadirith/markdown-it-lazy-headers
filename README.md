@@ -36,4 +36,4 @@ npm test
 
 ## License
 
-`markdown-it-lazy-headers` is released under the [MIT license](LICENCE.md).
+`markdown-it-lazy-headers` is released under the [MIT license](LICENSE.md).
